@@ -5,7 +5,7 @@ defmodule TailwindFormatter do
              |> String.split("<!-- MDOC !-->")
              |> Enum.fetch!(1)
 
-  alias TailwindFormatter.{Order, HEExTokenizer}
+  alias TailwindFormatter.Order
 
   @behaviour Mix.Tasks.Format
 
@@ -17,7 +17,7 @@ defmodule TailwindFormatter do
 
   def format(contents, _opts) do
     contents
-    |> HEExTokenizer.tokenize()
+    |> Phoenix.LiveView.HTMLFormatter.tokenize()
     |> Enum.reduce([contents], fn
       {elt, _name, attrs, _meta}, contents
       when elt in [:tag, :local_component, :remote_component] ->

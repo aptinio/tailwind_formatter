@@ -48,6 +48,8 @@ defmodule TailwindFormatter.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:phoenix_live_view,
+       github: "aptinio/phoenix_live_view", branch: "expose-html-formatter-tokenize"},
       {:tailwind, "~> 0.2", only: :dev},
       {:benchee, "~> 1.0", only: [:dev], optional: true},
       # docs
